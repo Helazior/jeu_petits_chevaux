@@ -1,9 +1,3 @@
-/*reste à faire:
--sauvegarde (tester conditions extrèmes, comme fichier ouvert, effacer fichier, écraser etc...)
--pdf.
-*/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -36,7 +30,7 @@ int main(int argc, char* argv[]) {
 
 	Joueur* joueur = (Joueur*)malloc(nb_joueurs * sizeof(Joueur));
 
-	if (!joueur) { //si l'allocation a échoué
+	if (!joueur) { //si l'allocation a Ã©chouÃ©
 		printf("Erreur allocation joueur");
 		exit(1);
 	}
@@ -68,7 +62,7 @@ int main(int argc, char* argv[]) {
 			
 			faire_pause = OUI;
 
-			nb_alea_1_6 = (rand() % 6) + 1; //nombre du dé aléatoire
+			nb_alea_1_6 = (rand() % 6) + 1; //nombre du dÃ© alÃ©atoire
 			//scanf_s("%d", &nb_alea_1_6);
 
 			printf("\nJoueur ");
@@ -80,10 +74,10 @@ int main(int argc, char* argv[]) {
 
 			if (nb_chevaux_dispo) { //s'il peut jouer
 
-				// tableau des chevaux hors de l'écurie
+				// tableau des chevaux hors de l'Ã©curie
 				int* tab_chevaux_dispo;
-				tab_chevaux_dispo = (int*)calloc(nb_chevaux_dispo + 1, sizeof(int)); // +1 pour mettre le 0 qui correcpond à quitter.
-				//tab_chevaux_dispo pas très utile mais montre que je sais faire un calloc
+				tab_chevaux_dispo = (int*)calloc(nb_chevaux_dispo + 1, sizeof(int)); // +1 pour mettre le 0 qui correcpond Ã  quitter.
+				//tab_chevaux_dispo pas trÃ¨s utile mais montre que je sais faire un calloc
 
 				if (!tab_chevaux_dispo) {
 					printf("Erreur d'allocation de tab_chevaux_dispo.");
@@ -106,7 +100,7 @@ int main(int argc, char* argv[]) {
 					printf("Le PNJ a choisi: %d\n", num_cheval + 1);
 				}
 				else {
-					num_cheval = demande_nb(tab_chevaux_dispo, nb_chevaux_dispo + 1) - 1; //enlever les collisions alliées.
+					num_cheval = demande_nb(tab_chevaux_dispo, nb_chevaux_dispo + 1) - 1; //enlever les collisions alliÃ©es.
 					faire_pause = NON;
 				}
 				pos = joueur[num_joueur].pos[num_cheval];
@@ -131,7 +125,7 @@ int main(int argc, char* argv[]) {
 					num_cheval = 0;
 				}
 				if (num_cheval >= 4 || num_cheval < 0) {
-					exit(1); //inutile en théorie mais enlève un warning
+					exit(1); //inutile en thÃ©orie mais enlÃ¨ve un warning
 				}
 				if (joueur[num_joueur].pos[num_cheval] == 63) {
 					printf("\nJoueur ");
